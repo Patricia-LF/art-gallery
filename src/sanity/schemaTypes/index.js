@@ -1,3 +1,3 @@
-import { paintingType } from "./paintingType";
+import { artworkType } from "./artworkType";
 
-export const schemaTypes = [paintingType];
+export const schemaTypes = [artworkType];

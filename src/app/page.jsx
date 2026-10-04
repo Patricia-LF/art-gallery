@@ -1,22 +1,22 @@
 import { client } from "@/sanity/lib/client";
-import { PAINTINGS_QUERY } from "@/sanity/lib/queries";
-import PaintingCard from "@/components/PaintingCard";
+import { ARTWORKS_QUERY } from "@/sanity/lib/queries";
+import ArtworkCard from "@/components/ArtworkCard";
 
 export const revalidate = 60; // refetch at most once a minute
 
 export default async function Home() {
-  const paintings = await client.fetch(PAINTINGS_QUERY);
+  const artworks = await client.fetch(ARTWORKS_QUERY);
 
   return (
     <main className="container">
       <header className="site-header">
-        <h1>Paintings</h1>
+        <h1>My Artwork</h1>
         <p>by Patricia Loayza Frykberg</p>
       </header>
 
       <section className="gallery">
-        {paintings.map((painting) => (
-          <PaintingCard key={painting._id} painting={painting} />
+        {artworks.map((artwork) => (
+          <ArtworkCard key={artwork._id} artwork={artwork} />
         ))}
       </section>
     </main>

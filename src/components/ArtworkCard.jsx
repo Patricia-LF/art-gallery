@@ -3,7 +3,7 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 
 export default function ArtworkCard({ artwork }) {
-  const { title, slug, year, image, category } = artwork;
+  const { title, slug, category, year, image } = artwork;
   const { width, height } = image.asset.metadata.dimensions;
 
   return (
