@@ -1,14 +1,17 @@
-# Painting Gallery
+# Art Gallery
 
-A gallery of my own paintings, built with Next.js and Sanity as a headless CMS.
+A gallery of my own artwork – paintings, photography, sculpture and 3D work made in Blender – built with Next.js and Sanity as a headless CMS.
 
 I built this project to practice Sanity: modelling content with schemas, managing it in an embedded Studio and fetching it with GROQ in a Next.js frontend.
 
 ## Features
 
-- Masonry gallery where each painting keeps its original proportions
-- A separate page for each painting with year, medium, dimensions and description
-- Embedded Sanity Studio at `/studio` for adding and editing paintings
+- Masonry gallery where each artwork keeps its original proportions
+- Four categories: painting, photography, sculpture and 3D (Blender)
+- Category-specific fields in the Studio, for example medium for paintings, camera for photos and software for 3D work
+- A separate page for each artwork with year, details and description
+- Several images per artwork, with clickable thumbnails to switch between them
+- Embedded Sanity Studio at `/studio` for adding and editing artworks
 - Optimized images from the Sanity CDN with a blurred placeholder while loading
 - Alt text on every image for screen readers
 
@@ -54,25 +57,30 @@ art-gallery/
 
 ## Content model
 
-Each painting is a `painting` document with these fields:
+Each artwork is an `artwork` document. Some fields only show up in the Studio for the categories they belong to.
 
-| Field         | Type   | Description                                |
-| ------------- | ------ | ------------------------------------------ |
-| `title`       | string | Name of the painting (required)            |
-| `slug`        | slug   | Generated from the title, used in the URL  |
-| `image`       | image  | The painting, with hotspot and alt text    |
-| `year`        | number | Year it was painted                        |
-| `medium`      | string | Oil, acrylic, watercolor, gouache or mixed |
-| `dimensions`  | string | For example `40 × 50 cm`                   |
-| `description` | text   | A few words about the painting             |
+| Field         | Type   | Shown for           | Description                                |
+| ------------- | ------ | ------------------- | ------------------------------------------ |
+| `title`       | string | All                 | Name of the artwork (required)             |
+| `slug`        | slug   | All                 | Generated from the title, used in the URL  |
+| `category`    | string | All                 | Painting, photography, sculpture or 3D     |
+| `image`       | image  | All                 | Main image, with hotspot and alt text      |
+| `year`        | number | All                 | Year it was made                           |
+| `medium`      | string | Painting            | Oil, acrylic, watercolor, gouache or mixed |
+| `camera`      | string | Photography         | Camera used                                |
+| `material`    | string | Sculpture           | For example clay, wood or stone            |
+| `software`    | string | 3D                  | Defaults to Blender                        |
+| `dimensions`  | string | Painting, sculpture | For example `40 × 50 cm`                   |
+| `moreImages`  | array  | All                 | Extra images, such as details or angles    |
+| `description` | text   | All                 | A few words about the artwork              |
 
 ## Getting started
 
 ### 1. Clone the repo and install dependencies
 
 ```bash
-git clone https://github.com/Patricia-LF/painting-gallery.git
-cd painting-gallery
+git clone https://github.com/Patricia-LF/art-gallery.git
+cd art-gallery
 npm install
 ```
 
@@ -100,9 +108,9 @@ npm run dev
 - Gallery: [http://localhost:3000](http://localhost:3000)
 - Studio: [http://localhost:3000/studio](http://localhost:3000/studio)
 
-### 5. Add paintings
+### 5. Add artworks
 
-Log in to the Studio, create a new **Painting** document, upload an image, generate the slug and click **Publish**. Only published paintings show up in the gallery.
+Log in to the Studio and create a new **Artwork** document. Choose a category, upload a main image, generate the slug and fill in the fields that show up for that category. Add extra images under **More images** if you like, then click **Publish**. Only published artworks show up in the gallery.
 
 ## Author
 
