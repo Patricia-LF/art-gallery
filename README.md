@@ -23,23 +23,25 @@ I built this project to practice Sanity: modelling content with schemas, managin
 ## Project structure
 
 ```
-painting-gallery/
+art-gallery/
 ├── sanity.config.js                  # Studio configuration
 ├── next.config.mjs                   # Allows images from cdn.sanity.io
 ├── .env                              # Sanity project ID and dataset (not committed)
+├── LICENSE                           # MIT license for the source code
 └── src/
     ├── app/
     │   ├── page.jsx                  # Home page with the gallery grid
     │   ├── layout.js                 # Root layout
     │   ├── globals.css               # Global styles
-    │   ├── paintings/
+    │   ├── artworks/
     │   │   └── [slug]/
-    │   │       └── page.jsx          # Page for a single painting
+    │   │       └── page.jsx          # Page for a single artwork
     │   └── studio/
     │       └── [[...tool]]/
     │           └── page.jsx          # Embedded Sanity Studio
     ├── components/
-    │   └── PaintingCard.jsx          # Card used in the gallery
+    │   ├── ArtworkCard.jsx           # Card used in the gallery grid
+    │   └── ArtworkImages.jsx         # Main image and thumbnails on the artwork page
     └── sanity/
         ├── lib/
         │   ├── client.js             # Sanity client
@@ -47,7 +49,7 @@ painting-gallery/
         │   └── queries.js            # GROQ queries
         └── schemaTypes/
             ├── index.js              # Collects all schema types
-            └── paintingType.js       # Painting document schema
+            └── artworkType.js        # Artwork document schema
 ```
 
 ## Content model
@@ -106,3 +108,9 @@ Log in to the Studio, create a new **Painting** document, upload an image, gener
 
 Patricia Loayza Frykberg
 [GitHub](https://github.com/Patricia-LF) · [Portfolio](https://patriciafrykberg.se/portfolio)
+
+## License
+
+The source code is licensed under the [MIT License](LICENSE).
+
+All artworks shown on the site (paintings, photographs, sculptures and 3D work) are © Patricia Loayza Frykberg. All rights reserved. They may not be used, copied or distributed without permission.
