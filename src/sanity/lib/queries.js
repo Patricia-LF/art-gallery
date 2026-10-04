@@ -1,30 +1,35 @@
 import { defineQuery } from "next-sanity";
 
-// Shared image projection: includes size and a tiny blur placeholder
-const imageFields = `
-  image{
-    alt,
-    asset->{ _id, metadata{ lqip, dimensions{ width, height } } }
-  }
-`;
+// Shared fields for every image: alt text, size and blur placeholder
+const imageProjection = `{
+  _key,
+  alt,
+  asset->{ _id, metadata{ lqip, dimensions{ width, height } } }
+}`;
 
-export const PAINTINGS_QUERY = defineQuery(`
-  *[_type == "painting" && defined(slug.current)] | order(year desc){
+export const ARTWORKS_QUERY = defineQuery(`
+  *[_type == "artwork" && defined(slug.current)] | order(year desc){
     _id,
     title,
     "slug": slug.current,
+    category,
     year,
-    ${imageFields}
+    image${imageProjection}
   }
 `);
 
-export const PAINTING_QUERY = defineQuery(`
-  *[_type == "painting" && slug.current == $slug][0]{
+export const ARTWORK_QUERY = defineQuery(`
+  *[_type == "artwork" && slug.current == $slug][0]{
     title,
+    category,
     year,
     medium,
+    camera,
+    material,
+    software,
     dimensions,
     description,
-    ${imageFields}
+    image${imageProjection},
+    moreImages[]${imageProjection}
   }
 `);
