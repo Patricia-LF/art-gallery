@@ -4,6 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { ARTWORK_QUERY } from "@/sanity/lib/queries";
 import ArtworkImages from "@/components/ArtworkImages";
+import { getCategory } from "@/lib/categories";
 
 export const revalidate = 60;
 
@@ -12,6 +13,8 @@ export default async function ArtworkPage({ params }) {
   const artwork = await client.fetch(ARTWORK_QUERY, { slug });
 
   if (!artwork) notFound();
+
+  const category = getCategory(artwork.category);
 
   const { title, year, description, image, moreImages } = artwork;
 
@@ -38,8 +41,8 @@ export default async function ArtworkPage({ params }) {
 
   return (
     <main className="container artwork-page">
-      <Link href="/" className="back-link">
-        ← Back to gallery
+      <Link href={`/category/${artwork.category}`} className="back-link">
+        ← Back to {category?.title ?? "gallery"}
       </Link>
 
       <ArtworkImages images={images} />

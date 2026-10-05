@@ -112,11 +112,6 @@ npm run dev
 
 Log in to the Studio and create a new **Artwork** document. Choose a category, upload a main image, generate the slug and fill in the fields that show up for that category. Add extra images under **More images** if you like, then click **Publish**. Only published artworks show up in the gallery.
 
-## Author
-
-Patricia Loayza Frykberg
-[GitHub](https://github.com/Patricia-LF) · [Portfolio](https://patriciafrykberg.se/portfolio)
-
 ## License
 
 The source code is licensed under the [MIT License](LICENSE).
