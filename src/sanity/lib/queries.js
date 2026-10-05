@@ -33,3 +33,23 @@ export const ARTWORK_QUERY = defineQuery(`
     moreImages[]${imageProjection}
   }
 `);
+
+// Every artwork's category and image, used to build the category cards
+export const CATEGORY_COVERS_QUERY = defineQuery(`
+  *[_type == "artwork" && defined(slug.current)]
+    | order(coalesce(featured, false) desc, year desc){
+      category,
+      image${imageProjection}
+    }
+`);
+
+// All artworks in one category
+export const ARTWORKS_BY_CATEGORY_QUERY = defineQuery(`
+  *[_type == "artwork" && category == $category && defined(slug.current)] | order(year desc){
+    _id,
+    title,
+    "slug": slug.current,
+    year,
+    image${imageProjection}
+  }
+`);

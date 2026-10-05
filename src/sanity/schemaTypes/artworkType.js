@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { CATEGORIES } from "@/lib/categories";
 
 export const artworkType = defineType({
   name: "artwork",
@@ -23,12 +24,7 @@ export const artworkType = defineType({
       title: "Category",
       type: "string",
       options: {
-        list: [
-          { title: "Painting", value: "painting" },
-          { title: "Photography", value: "photography" },
-          { title: "Sculpture", value: "sculpture" },
-          { title: "3D (Blender)", value: "3d" },
-        ],
+        list: CATEGORIES.map(({ title, value }) => ({ title, value })),
         layout: "radio",
       },
       validation: (rule) => rule.required(),
@@ -40,6 +36,14 @@ export const artworkType = defineType({
       options: { hotspot: true },
       validation: (rule) => rule.required(),
       fields: [defineField({ name: "alt", title: "Alt text", type: "string" })],
+    }),
+    defineField({
+      name: "featured",
+      title: "Show on start page",
+      type: "boolean",
+      description:
+        "Featured artworks are shown first in the category card on the start page",
+      initialValue: false,
     }),
     defineField({
       name: "year",
