@@ -9,18 +9,23 @@ export default function ArtworkImages({ images }) {
 
   return (
     <div className="artwork-images">
-      <Image
-        key={active.key}
-        src={active.src}
-        alt={active.alt}
-        width={active.width}
-        height={active.height}
-        placeholder="blur"
-        blurDataURL={active.lqip}
-        sizes="100vw"
-        priority
-        className="artwork-main-image"
-      />
+      <div
+        className="artwork-main"
+        style={{ "--ratio": active.width / active.height }}
+      >
+        <Image
+          key={active.key}
+          src={active.src}
+          alt={active.alt}
+          width={active.width}
+          height={active.height}
+          placeholder="blur"
+          blurDataURL={active.lqip}
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          priority
+          className="artwork-main-image"
+        />
+      </div>
 
       {/* Only show thumbnails when there is more than one image */}
       {images.length > 1 && (
