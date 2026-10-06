@@ -83,7 +83,6 @@ export const artworkType = defineType({
       name: "software",
       title: "Software",
       type: "string",
-      initialValue: "Blender",
       hidden: ({ document }) => document?.category !== "3d",
     }),
 
