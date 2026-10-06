@@ -18,17 +18,18 @@ export const ARTWORKS_QUERY = defineQuery(`
   }
 `);
 
+// Only return category-specific fields that belong to this category
 export const ARTWORK_QUERY = defineQuery(`
   *[_type == "artwork" && slug.current == $slug][0]{
     title,
     category,
     year,
-    medium,
-    camera,
-    material,
-    software,
-    dimensions,
     description,
+    "medium": select(category == "painting" => medium),
+    "camera": select(category == "photography" => camera),
+    "material": select(category == "sculpture" => material),
+    "software": select(category == "3d" => software),
+    "dimensions": select(category in ["painting", "sculpture"] => dimensions),
     image${imageProjection},
     moreImages[]${imageProjection}
   }
