@@ -1,6 +1,6 @@
 # Art Gallery
 
-A gallery of my own artwork – paintings, photography, sculpture and 3D work made in Blender – built with Next.js and Sanity as a headless CMS.
+A gallery of my own artwork – paintings, photographies, sculptures and 3D work made in Blender – built with Next.js and Sanity as a headless CMS.
 
 I built this project to practice Sanity: modelling content with schemas, managing it in an embedded Studio and fetching it with GROQ in a Next.js frontend.
 
@@ -59,20 +59,20 @@ art-gallery/
 
 Each artwork is an `artwork` document. Some fields only show up in the Studio for the categories they belong to.
 
-| Field         | Type   | Shown for           | Description                                |
-| ------------- | ------ | ------------------- | ------------------------------------------ |
-| `title`       | string | All                 | Name of the artwork (required)             |
-| `slug`        | slug   | All                 | Generated from the title, used in the URL  |
-| `category`    | string | All                 | Painting, photography, sculpture or 3D     |
-| `image`       | image  | All                 | Main image, with hotspot and alt text      |
-| `year`        | number | All                 | Year it was made                           |
-| `medium`      | string | Painting            | Oil, acrylic, watercolor, gouache or mixed |
-| `camera`      | string | Photography         | Camera used                                |
-| `material`    | string | Sculpture           | For example clay, wood or stone            |
-| `software`    | string | 3D                  | Defaults to Blender                        |
-| `dimensions`  | string | Painting, sculpture | For example `40 × 50 cm`                   |
-| `moreImages`  | array  | All                 | Extra images, such as details or angles    |
-| `description` | text   | All                 | A few words about the artwork              |
+| Field         | Type   | Shown for           | Description                               |
+| ------------- | ------ | ------------------- | ----------------------------------------- |
+| `title`       | string | All                 | Name of the artwork (required)            |
+| `slug`        | slug   | All                 | Generated from the title, used in the URL |
+| `category`    | string | All                 | Painting, photography, sculpture or 3D    |
+| `image`       | image  | All                 | Main image, with hotspot and alt text     |
+| `year`        | number | All                 | Year it was made                          |
+| `medium`      | string | Painting            | Oil, acrylic, watercolor, pastel or mixed |
+| `camera`      | string | Photography         | Camera used                               |
+| `material`    | string | Sculpture           | For example clay, wood or stone           |
+| `software`    | string | 3D                  | Defaults to Blender                       |
+| `dimensions`  | string | Painting, sculpture | For example `40 × 50 cm`                  |
+| `moreImages`  | array  | All                 | Extra images, such as details or angles   |
+| `description` | text   | All                 | A few words about the artwork             |
 
 ## Getting started
 
