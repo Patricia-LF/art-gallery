@@ -27,6 +27,18 @@ export default async function Home() {
         <p>by Patricia Loayza Frykberg</p>
       </header>
 
+      <section className="hero">
+        <p className="welcome">Welcome to my gallery!</p>
+        <p>
+          This is where I collect the things I create when I'm not writing code
+          – paintings, photographs, sculptures and 3D work made in Blender.
+        </p>
+        <p className="pick-category">
+          {" "}
+          Pick a category below to have a look around.
+        </p>
+      </section>
+
       <section className="category-grid">
         {categories.map((category) => (
           <CategoryCard key={category.value} category={category} />
