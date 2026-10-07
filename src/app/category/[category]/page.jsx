@@ -25,7 +25,7 @@ export default async function CategoryPage({ params }) {
   return (
     <main className="container">
       <Link href="/" className="back-link">
-        ← All categories
+        <img src="/arrow-back.svg"></img> All categories
       </Link>
 
       <header className="site-header">
