@@ -44,7 +44,8 @@ art-gallery/
     │           └── page.jsx          # Embedded Sanity Studio
     ├── components/
     │   ├── ArtworkCard.jsx           # Card used in the gallery grid
-    │   └── ArtworkImages.jsx         # Main image and thumbnails on the artwork page
+    │   ├── ArtworkImages.jsx         # Main image and thumbnails on the artwork page
+    │   └── Footer.jsx
     └── sanity/
         ├── lib/
         │   ├── client.js             # Sanity client
